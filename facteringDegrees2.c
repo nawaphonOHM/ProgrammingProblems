@@ -28,7 +28,6 @@ void findTheAnswer (fration* head, realAnswer* answerones, fration** answer);
 fration findAnotherAnswer (fration* input, 
                             int numberA, 
                             int numberB);
-void validation (fration* answer, fration* anotherAnswer);
 
 void evaluationAnswer (int inputA, 
                         int inputB, 
@@ -203,6 +202,7 @@ void findTheAnswer (fration* head, realAnswer* answerones, fration** answer)
         head = head->next;
     }
 }
+
 fration findAnotherAnswer (fration* input, 
                             int numberA, 
                             int numberB)
@@ -216,31 +216,7 @@ fration findAnotherAnswer (fration* input,
 
     return anotherAnswer;
 }
-void validation (fration* answer, fration* anotherAnswer)
-{
-    fration temp;
 
-    if ( answer->denominator != anotherAnswer->denominator )
-    {
-         if ( answer->denominator > anotherAnswer->denominator )
-        {
-            temp = *answer;
-            *answer = *anotherAnswer;
-            *anotherAnswer = temp;
-            return;
-        }
-    }
-    else
-    {
-        if ( answer->numerator > anotherAnswer->numerator )
-        {
-            temp = *answer;
-            *answer = *anotherAnswer;
-            *anotherAnswer = temp;
-            return;
-        }
-    }
-}
 void evaluationAnswer (int inputA, int inputB, int inputC, realAnswer* answerones)
 {
     answerones->fistAnswer = (-inputB + sqrt ( (inputB * inputB) - (4 * inputA * inputC) )) / (2 * inputA);
