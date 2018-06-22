@@ -118,15 +118,14 @@ void printTree(Tree* myself, int amount){
 
 void reallyprintTree(Tree* myself, int* printedTable, int level){
     int i;
-
+    
+    *(printedTable + level) = myself->data;
     if(myself->amountofchildnode > 0){
-        *(printedTable + level) = myself->data;
         for(i = 0; i < myself->amountofchildnode; i++){
             reallyprintTree(myself->childnodelist + i, printedTable, level + 1);
         }
     }
     else{
-        *(printedTable + level) = myself->data;
         for(i = 0; i <= level; i++){
             printf("%d ", *(printedTable + i));
         }
